@@ -1,0 +1,52 @@
+@use "../../settings/global" as gl;
+
+$ftc: gl.$theme-color-acc;
+$border: solid 1px #888;
+$on-ftc: gl.$theme-color-main;
+$on-bgc: #fff;
+$off-bgc: #eee;
+$cell-h: gl.$vr-rem-base * 1.25;
+
+.rsv {
+
+  // base
+  box-sizing: border-box;
+  color: $ftc;
+
+  // プログレスバー 未作成
+  // @at-root &__rsv-progress {
+  //   margin-bottom: gl.$vr-rem-base;
+  // }
+
+  // @at-root &__rsv-contents-wrapper {
+  // }
+
+  .rsv-confirm-table {
+    margin: 0 auto;
+    margin-bottom: gl.$vr-rem-base * 1.25;
+  }
+
+  .rsv-input-form {
+    margin: 0 auto;
+  }
+
+  .rsv-button {
+    margin-top: gl.$vr-rem-base * 2;
+    margin-bottom: gl.$vr-rem-base * .75;
+  }
+
+  .rsv-button--back {
+    margin-bottom: gl.$vr-rem-base * .75;
+  }
+
+  .rsv-button--err {
+    margin-top: gl.$vr-rem-base * 2;
+    margin-bottom: gl.$vr-rem-base * .75;
+  }
+
+  .rsv-msg,
+  .rsv-msg--confirm {
+    margin-bottom: gl.$vr-rem-base * 1.25;
+  }
+
+}

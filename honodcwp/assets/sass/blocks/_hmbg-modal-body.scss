@@ -1,0 +1,6 @@
+@use "settings/global" as gl;
+
+// is-active-hmbg
+.hmbg-modal-body.is-active-hmbg {
+   overflow: hidden; // ハンバーガーメニュー以外のスクロールを無効にする
+}

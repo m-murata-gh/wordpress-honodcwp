@@ -1,0 +1,53 @@
+@use "settings/global" as gl;
+
+.label {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0 .5em;
+  width: max-content;
+  color: gl.$theme-color-base;
+  font-size: gl.$txt-rem-xx-sm;
+  line-height: gl.$txt-lh-xx-sm;
+
+  // 背景色部分
+  @at-root &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -(gl.$border-w);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: gl.$vr-rem-base;
+    background-color: gl.$theme-color-main;
+    border: solid gl.$border-w gl.$theme-color-base;
+  }
+
+  // 文字部分
+  @at-root &::after {
+    display: block;
+    content: 'お知らせ';
+    position: absolute;
+    // z-index: -1;
+    top: -(gl.$border-w);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: gl.$vr-rem-base;
+    color: gl.$theme-color-base;
+    text-align: center;
+  }
+}
+
+.label--important {
+  @extend .label;
+
+  @at-root &::before {
+    background-color: gl.$theme-color-warning;
+  }
+
+  @at-root &::after {
+    content: '重要';
+  }
+}

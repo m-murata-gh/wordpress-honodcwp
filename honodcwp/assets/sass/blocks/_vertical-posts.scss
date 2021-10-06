@@ -1,0 +1,128 @@
+@use "settings/global" as gl;
+
+.vertical-posts {
+
+  @at-root &__item {
+    // contain: layout;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: gl.$vr-rem-base gl.$sp-side-gap;
+    width: 100%;
+    color: gl.$theme-color-base !important;
+    transition: all gl.$duration-base;
+
+    @include gl.media-md {
+      padding: gl.$vr-rem-base gl.$pc-side-gap;
+    }
+
+    @at-root &:hover {
+      background-color: gl.$fc-heading-news;
+
+      .vertical-posts__label {
+        opacity: gl.$hover-opacity-base;
+      }
+    }
+
+    @at-root &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      // z-index: -1;  ??
+      top: -(gl.$border-w) ;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-style: solid;
+      border-width: gl.$border-w 0;
+      border-color: gl.$theme-color-acc-2;
+    }
+  }
+
+  @at-root &__date {
+    float: left;
+    margin-right: .5em;
+    margin-bottom: gl.$vr-rem-base * .25;
+    width: 100%;
+    vertical-align: top;
+
+    @include gl.media-md {
+      width: unset;
+      margin-bottom: unset;
+    }
+  }
+
+  @at-root &__label {
+    float: left;
+    margin-right: .5em;
+    transition: all gl.$duration-base;
+  }
+
+  @at-root &__title {
+    clear: both;
+    float: left;
+    margin-top: gl.$vr-rem-base * .25;
+    font-weight: bold;
+  }
+
+  @at-root &__paragraph {
+    clear: both;
+    float: left;
+    margin-top: gl.$vr-rem-base * .25;
+    width: 100%;
+    white-space: nowrap;
+    font-size: gl.$txt-rem-sm;
+    line-height: gl.$txt-lh-sm;
+
+    p {
+      height: gl.$vr-rem-base * 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
+
+.vertical-posts--article {
+
+  @at-root &__item {
+    color: gl.$theme-color-acc !important;
+
+    @include gl.media-sm {
+      padding: gl.$vr-rem-base 0;
+    }
+
+    @at-root &:hover {
+      background-color: unset;
+      .vertical-posts__label {
+        opacity: unset;
+      }
+    }
+
+    @at-root &::before {
+      border-color: gl.$theme-color-base-2;
+    }
+  }
+
+  @at-root &__date {
+  }
+
+  @at-root &__label {
+  }
+
+  @at-root &__title {
+    margin-top: gl.$vr-rem-base * .5;
+  }
+
+  @at-root &__paragraph {
+    overflow: unset;
+    margin-top: gl.$vr-rem-base * .75;
+    text-overflow: unset;
+    white-space: unset;
+
+    p {
+      height: unset;
+    }
+  }
+}

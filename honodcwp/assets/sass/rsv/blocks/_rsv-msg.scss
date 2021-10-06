@@ -1,0 +1,30 @@
+@use "../../settings/global" as gl;
+
+.rsv-msg {
+  width: 100%;
+  max-width: 540px;
+  padding: 0 1em;
+  margin: 0 auto;
+  line-height: gl.$txt-lh-sm;
+  font-size: gl.$txt-rem-sm;
+
+  b {
+    line-height: gl.$txt-lh-base;
+    font-size: gl.$txt-rem-base;
+    font-weight: bold;
+  }
+
+  strong {
+    color: gl.$theme-color-warning;
+    line-height: inherit;
+    font-size: inherit;
+  }
+}
+
+.rsv-msg--confirm {
+  @extend .rsv-msg;
+
+  padding: (gl.$vr-rem-base * 1) 1em;
+  background-color: gl.$theme-color-acc-3;
+  text-align: center;
+}

@@ -1,0 +1,34 @@
+@use "settings/global" as gl;
+
+.balloon-msg {
+  width: 100%;
+
+  @at-root &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 gl.$sp-side-gap;
+    padding: (gl.$vr-rem-base - .2rem) 0; // .2rem...border分引く
+    border: dotted .2rem gl.$theme-color-main;
+    border-left: unset;
+    border-right: unset;
+
+    @include gl.media-md {
+      margin: 0;
+      border: unset;
+      $height: gl.$vr-rem-base * 8;
+      height: $height;
+      width: ($height * 1.5625); // ...縦横比固定。画像サイズ500x320
+      background: no-repeat left/ contain url(../../assets/images/balloon-msg-bg.svg);
+    }
+  }
+
+  li {
+    width: 100%;
+
+    @include gl.media-md {
+      white-space: nowrap;
+    }
+  }
+}

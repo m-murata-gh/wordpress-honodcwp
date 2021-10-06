@@ -1,0 +1,38 @@
+@use "../../settings/global" as gl;
+
+$border: solid 1px gl.$theme-color-base-2;
+
+.rsv-confirm-table {
+  width: 100%;
+  max-width: 540px;
+  text-align: center;
+
+  th, td {
+    word-break : break-all;
+    height: gl.$vr-rem-base * 2;
+    padding: 0 .5em;
+    border: $border;
+    line-height: gl.$txt-lh-sm;
+    font-size: gl.$txt-rem-sm;
+    vertical-align: middle;
+  }
+
+  th {
+    width: 30%;
+    min-width: 6em;
+    background-color: gl.$theme-color-base-2;
+  }
+
+  td {
+    background-color: gl.$theme-color-base;
+  }
+
+  .disp-time {
+    display: inline-block;
+    padding-left: 1em;
+    @include gl.media-md {
+      display: inline-block;
+
+    }
+  }
+}

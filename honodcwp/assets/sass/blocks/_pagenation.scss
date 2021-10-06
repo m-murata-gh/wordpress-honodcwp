@@ -1,0 +1,6 @@
+@use "settings/global" as gl;
+
+.pagenation {
+  padding: gl.$vr-rem-base 0;
+  text-align: center;
+}

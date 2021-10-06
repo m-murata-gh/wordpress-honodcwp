@@ -1,0 +1,26 @@
+@use "settings/global" as gl;
+
+.call-reserve {
+
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  li {
+    @include gl.li-nav;
+    border-right: solid #{gl.$border-w} gl.$theme-color-base;;
+    background-color: gl.$theme-color-main;
+    @include gl.bg-tcm-hover; // hover時背景色変更
+
+    @at-root &:last-child {
+      border-right: unset;
+    }
+
+    a {
+      display: block;
+      color: gl.$theme-color-base;
+    }
+  }
+}

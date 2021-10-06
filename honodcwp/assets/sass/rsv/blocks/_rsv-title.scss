@@ -1,0 +1,21 @@
+@use "../../settings/global" as gl;
+
+$h3-h: gl.$vr-rem-base * 2;
+$h3-bgc: gl.$theme-color-main;
+$h3-ftc: gl.$theme-color-base;
+
+.rsv-title {
+  width: 100%;
+  // height: 100%;
+
+  h3 {
+    margin-bottom: gl.$vr-rem-base * .25;
+    padding-left: .5em;
+    line-height: $h3-h;
+    background-color: $h3-bgc;
+    color: $h3-ftc;
+    font-size: gl.$txt-rem-lg;
+  }
+  p {
+  }
+}

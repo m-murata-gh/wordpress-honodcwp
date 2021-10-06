@@ -1,0 +1,37 @@
+@use "settings/global" as gl;
+
+.sp-header {
+  position: fixed;
+  z-index: gl.$z-upper-top;
+  top: 0;
+  width: 100%;
+  background-color: gl.$bgc-sp-header;
+
+  @include gl.media-md {
+    display: none;
+  }
+
+  @at-root &__inner-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @at-root &__hmbg-btn {
+    margin-left: gl.$sp-col-gap;
+    transform: translateX(.1rem); // ボーダーが透明色のため、ハンバーガーコンテナと右端をそろえる(ボーダー分右にずらす)
+  }
+
+  @at-root &__structure-2 {
+    position: absolute;
+    top: gl.$sp-header-h;
+  }
+
+  @at-root &__inner-2 {
+    @include gl.tmp-grid-container;
+  }
+
+  @at-root &__hmbg-menu {
+    grid-column: 1 / -1;
+  }
+}

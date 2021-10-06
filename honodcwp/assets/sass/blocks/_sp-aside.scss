@@ -1,0 +1,10 @@
+@use "settings/global" as gl;
+
+.sp-aside {
+  background-color: gl.$bgc-mv;
+  margin-top: gl.$sp-header-h; // .sp-asideを.sp-header分下にずらす
+
+  @include gl.media-md {
+    display: none;
+  }
+}

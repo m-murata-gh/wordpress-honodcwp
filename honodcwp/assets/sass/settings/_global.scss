@@ -1,0 +1,194 @@
+@use "tools/my-functions" as my;
+
+//
+// 値設定
+//
+
+// バーティカルリズム
+$vr-num-base: 24; // バーティカルリズムベース値
+$vr-rem-base: my.rem($vr-num-base); // バーティカルリズムベース値(rem)
+
+// グリッド
+$tmp-col: 16; // グリッド列数
+$pc-col-gap: 20px; // pc列溝幅
+$sp-col-gap: 16px; // sp列溝幅
+$row-gap: $vr-rem-base; // 行溝幅
+
+$pc-side-gap: $pc-col-gap; // pcスクリーン左右の余白
+$sp-side-gap: $sp-col-gap; // spスクリーン左右の余白
+
+// コンテンツ幅
+$root-min-w: 320px; // ページの最小幅
+$inner-max-w: 960px; // コンテンツの最大幅
+$inner-max-w--wide: 1440px; // ワイドコンテンツの最大幅(ヘッダーやMV)
+
+// ヘッダー高さ
+$pc-header-h--logo: $vr-rem-base * 2; // 上:pcロゴ部分
+$pc-header-h--nav: $vr-rem-base * 2; // 下:pcナビ部分
+$pc-header-h: $pc-header-h--logo + $pc-header-h--nav; // pcロゴ合計
+$sp-header-h: $vr-rem-base * 3; // spロゴ、ハンバーガーボタン部分
+
+// ボタン高さ
+$btn-h: $vr-rem-base * 2;
+
+// 区切り線、枠線の幅
+$border-w: .1rem;
+
+// z-index
+$z-upper-top: 3; // ...pc-header, sp-header
+// $z-upper-mid: 2;
+// $z-upper-bottom: 1;
+// $z-lower-top: -1;
+// $z-lower-mid: -2;
+// $z-lower-bottom: -3;
+
+// transition duration
+$duration-base: .4s;
+
+// hover opacity
+$hover-opacity-base: .75;
+
+// メディアクエリmixin
+// media-sm
+@mixin media-sm {
+  @media screen and (max-width: 640px) { @content; }
+}
+
+// media-md
+@mixin media-md {
+  @media screen and (min-width: 641px) { @content; }
+}
+
+// media-lg
+@mixin media-lg {
+  @media screen and (min-width: 1201px) { @content; }
+}
+
+// テキストサイズ(num)
+$txt-num-base: 16;
+$txt-num-xx-lg: $txt-num-base + 6;
+$txt-num-x-lg: $txt-num-base + 4;
+$txt-num-lg: $txt-num-base + 2;
+$txt-num-sm: $txt-num-base - 1;
+$txt-num-x-sm: $txt-num-base - 2;
+$txt-num-xx-sm: $txt-num-base - 4;
+
+// テキストサイズ(rem)
+$txt-rem-base: my.rem($txt-num-base);
+$txt-rem-xx-lg: my.rem($txt-num-xx-lg);
+$txt-rem-x-lg: my.rem($txt-num-x-lg);
+$txt-rem-lg: my.rem($txt-num-lg);
+$txt-rem-sm: my.rem($txt-num-sm);
+$txt-rem-x-sm: my.rem($txt-num-x-sm);
+$txt-rem-xx-sm: my.rem($txt-num-xx-sm);
+
+// テキストサイズ(rem)に対応するline-height
+$txt-lh-base: my.vr-txt-lh($vr-num-base, $txt-num-base);
+$txt-lh-xx-lg: my.vr-txt-lh($vr-num-base, $txt-num-xx-lg);
+$txt-lh-x-lg: my.vr-txt-lh($vr-num-base, $txt-num-x-lg);
+$txt-lh-lg: my.vr-txt-lh($vr-num-base, $txt-num-lg);
+$txt-lh-sm: my.vr-txt-lh($vr-num-base, $txt-num-sm);
+$txt-lh-x-sm: my.vr-txt-lh($vr-num-base, $txt-num-x-sm);
+$txt-lh-xx-sm: my.vr-txt-lh($vr-num-base, $txt-num-xx-sm);
+
+// テーマカラー
+$theme-color-base: #fff; // ベース #ホワイト
+$theme-color-base-2: #e2dccb; // ベース2 #ライトベージュ
+$theme-color-main: #036; // メイン(ロゴ、フッター) #ネイビーブルー
+$theme-color-acc: #322; // アクセント(文字、ボタン)	#ダークブラウン
+$theme-color-acc-2: #bbcfdf; // アクセント2 #ペールブルー
+$theme-color-acc-3: #ffc; // アクセント3 #ペールイエロー
+$theme-color-warning: #e22; // 警告 #赤
+
+
+//
+// ベース設計
+//
+
+// 背景色
+$bgc-body: $theme-color-base;
+$bgc-pc-header: rgba($theme-color-base, .95);
+$bgc-sp-header: $bgc-pc-header;
+$bgc-mv: $theme-color-base;
+$bgc-time-table: rgba($theme-color-base, .8);
+$bgc-news: $theme-color-main;
+$bgc-greeting: $theme-color-base-2;
+$bgc-medical: $theme-color-base;
+$bgc-clinic: $theme-color-base-2;
+$bgc-access: $theme-color-base;
+$bgc-footer: $theme-color-main;
+
+// heading背景フォント色
+$heading-alpha--base: .6;
+$heading-alpha--acc-2: .4;
+$fc-heading-news: rgba($theme-color-acc-2, .2);
+$fc-heading-greeting: rgba($theme-color-base, $heading-alpha--base);
+$fc-heading-medical: rgba($theme-color-acc-2, $heading-alpha--acc-2);
+$fc-heading-clinic: rgba($theme-color-base, $heading-alpha--base);
+$fc-heading-access: rgba($theme-color-acc-2, $heading-alpha--acc-2);
+$fc-heading-pagetitle: rgba($theme-color-base, $heading-alpha--base);
+
+// root(html)
+$root-font-size: 62.5%;
+
+// body
+$body-font-family: #{'游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic'};
+$body-font-size: $txt-rem-base;
+$body-line-height: $vr-rem-base; // バーティカルリズムベースライン
+$body-letter-spacing: .08em;
+
+// nav li 共通スタイル
+@mixin li-nav {
+  font-size: $txt-rem-base;
+  line-height: $btn-h;
+  text-align: center;
+  white-space: nowrap;
+}
+
+// 各セクションの上下のpadding
+@mixin section-vertical-padding {
+  padding-top: $vr-rem-base * 1;
+  padding-bottom: $vr-rem-base * 2;
+}
+
+// グリッドコンテナーベース
+@mixin tmp-grid-container {
+  display: grid;
+  grid-template-columns: repeat($tmp-col, 1fr);
+  column-gap: $sp-col-gap;
+  @include media-md {
+    column-gap: $pc-col-gap;
+  }
+}
+
+// 背景上部のウェーブ(beforeの親にrelativeをつけること)
+@mixin before-bg-wave {
+  $wave-h: $row-gap * 1;
+
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: min($wave-h);
+  transform: translateY(-($wave-h));
+  background: no-repeat center top / (102% + 20%) auto url(../../assets/images/wave.svg);
+
+  @include media-lg {
+    $wave-h: $row-gap * 2;
+    height: $wave-h;
+    transform: translateY(-($wave-h));
+    background-size: 102% auto; // 102%...100%だとスクリーン伸縮時にちらつくので大きめに設定
+  }
+}
+
+// hover時背景色変更
+@mixin bg-tcm-hover {
+  transition: all $duration-base;
+
+  @at-root &:hover {
+    background-color: rgba($theme-color-main, .8);
+  }
+}

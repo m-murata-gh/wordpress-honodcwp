@@ -1,0 +1,60 @@
+@use "settings/global" as gl;
+
+.footer {
+  position: relative; // 背景上部のウェーブの基準
+  padding-top: gl.$vr-rem-base;
+  padding-bottom: gl.$vr-rem-base;
+  background-color: gl.$bgc-footer;
+  color: gl.$theme-color-base;
+  font-size: gl.$txt-rem-sm;
+  line-height: gl.$txt-lh-sm;
+
+  @at-root &__inner {
+    @include gl.tmp-grid-container;
+    grid-template-rows: (gl.$vr-rem-base * 2) auto;
+    row-gap: gl.$row-gap;
+  }
+
+  @at-root &__logo--sm {
+    grid-column: 1 / -1;
+    align-self: end;
+    justify-self: start;
+  }
+
+  @at-root &__info {
+    grid-column: 1 / -1;
+    justify-self: start;
+
+    @include gl.media-md {
+      grid-column: 1 / 7;
+      grid-row: 2;
+    }
+  }
+
+  @at-root &__time-table {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    @include gl.media-md {
+      grid-column: -10 / -1;
+      grid-row: 2;
+      justify-self: end;
+    }
+
+    table {
+      color: gl.$theme-color-base;
+    }
+  }
+
+  @at-root &__copyright {
+    grid-column: 1 / -1;
+    justify-self: center;
+    font-size: gl.$txt-rem-xx-sm;
+    line-height: gl.$txt-lh-xx-sm;
+  }
+
+  // 背景上部のウェーブ
+  @at-root &::before {
+    @include gl.before-bg-wave;
+  }
+}

@@ -1,0 +1,21 @@
+@use "settings/global" as gl;
+
+.greeting {
+  @include gl.section-vertical-padding;
+  background-color: gl.$bgc-greeting;
+
+  @at-root &__inner {
+    @include gl.tmp-grid-container;
+    position: relative;
+    background: no-repeat left bottom/ auto (gl.$vr-rem-base * 3) url(../../assets/images/leaves_white.svg);
+  }
+
+  @at-root &__heading {
+    grid-column: 1 / -1;
+  }
+
+  @at-root &__contents {
+    grid-column: 2 / -2;
+    grid-row: 2;
+  }
+}

@@ -1,0 +1,55 @@
+@use "settings/global" as gl;
+
+:root {
+  width: max(100%, #{gl.$root-min-w});
+  font-size: 58.5%;
+  @include gl.media-md {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  color: gl.$theme-color-acc;
+  font-family: gl.$body-font-family;
+  line-height: gl.$body-line-height;
+  font-size: gl.$body-font-size;
+  letter-spacing: gl.$body-letter-spacing;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+
+  &:link {
+    color: gl.$theme-color-acc;
+  }
+  &:visited {
+    color: gl.$theme-color-acc;
+  }
+  &:focus {
+    outline: initial;
+    color: gl.$theme-color-acc;
+  }
+  &:hover {
+    color: gl.$theme-color-acc-2;
+  }
+  &:active {
+    color: gl.$theme-color-acc-2;
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.cf:before,
+.cf:after {
+	display: table;
+	content: " ";
+}
+.cf:after {
+	clear: both;
+}

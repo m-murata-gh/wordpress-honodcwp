@@ -1,0 +1,15 @@
+@use "settings/global" as gl;
+
+.logo {
+
+  img {
+    height: gl.$vr-rem-base * 1.5;
+  }
+}
+
+.logo--sm {
+
+  img {
+    height: gl.$vr-rem-base * 1;
+  }
+}

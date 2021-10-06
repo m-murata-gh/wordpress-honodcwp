@@ -1,0 +1,23 @@
+@use "settings/global" as gl;
+
+.breadcrumbs {
+
+  li {
+    display: inline-block;
+    margin-right: .25em;
+    font-size: gl.$txt-rem-x-sm;
+    line-height: gl.$txt-lh-x-sm;
+  }
+
+  li+li::before {
+    display: inline-block;
+    content: '>';
+    margin-right: .5em;
+    font-size: gl.$txt-rem-xx-sm;
+    line-height: gl.$txt-lh-xx-sm;
+  }
+
+  a {
+    display: inline-block;
+  }
+}

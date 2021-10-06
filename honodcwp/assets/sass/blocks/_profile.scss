@@ -1,0 +1,43 @@
+@use "settings/global" as gl;
+
+.profile {
+  // contain: content;
+  position: relative;
+  height: gl.$vr-rem-base * 10;
+  overflow: hidden;
+
+  @at-root &__photo {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: no-repeat center/ cover url(../../assets/images/profile-min.png);
+  }
+
+  @at-root &__name {
+    // contain: layout;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    padding: (gl.$vr-rem-base * .25) .5em;
+    color: gl.$theme-color-base;
+    transform:translate3d(0,0,0); // ios対策
+
+    @at-root &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      z-index: -1;
+      transform:translate3d(0,0,-1); // ios対策
+      top: 0;
+      right: -100%;
+      width: 200%;
+      height: 100%;
+      background-color: gl.$theme-color-main;
+    }
+
+    dd {
+      text-indent: 1em;
+    }
+  }
+}

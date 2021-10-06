@@ -1,0 +1,29 @@
+@use "settings/global" as gl;
+
+.leaf-dotted-line {
+  contain: layout;
+  position: relative;
+  z-index: 0;
+  transform:translate3d(0,0,0); // ios対策
+
+  @at-root &::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: -15%; // 位置微調整
+    left: 0;
+    z-index: -1;
+    transform:translate3d(0,0,-1); // ios対策
+    width: 2em;
+    height: 2em;
+    background: no-repeat center/ contain url(../../assets/images/leaf_paleblue.svg);
+  }
+
+  span {
+    position: relative;
+    left: 1.5em;
+    padding-left: 1em;
+    padding-right: 2em;
+    border-bottom: dotted .2rem gl.$theme-color-main;
+  }
+}

@@ -1,0 +1,42 @@
+@use "settings/global" as gl;
+
+.clinic {
+  @include gl.section-vertical-padding;
+  background-color: gl.$bgc-clinic;
+
+  @at-root &__inner {
+    @include gl.tmp-grid-container;
+  }
+
+  @at-root &__heading {
+    grid-column: 1/ -1;
+    grid-row: 1;
+  }
+
+  @at-root &__place {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-bottom: gl.$vr-rem-base * 2;
+  }
+
+  @at-root &__profile {
+    grid-column: 1 / 14;
+    grid-row: 3;
+    margin-bottom: gl.$vr-rem-base;
+
+    @include gl.media-md {
+      grid-column: 1 / 7;
+      margin-bottom: unset;
+    }
+  }
+
+  @at-root &__history {
+    grid-column: 1 / -1;
+    grid-row: 4;
+
+    @include gl.media-md {
+      grid-column: 7 / -1;
+      grid-row: 3;
+    }
+  }
+}

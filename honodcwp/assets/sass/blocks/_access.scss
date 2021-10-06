@@ -1,0 +1,65 @@
+@use "settings/global" as gl;
+
+.access {
+  @include gl.section-vertical-padding;
+  background-color: gl.$bgc-access;
+  padding-bottom: gl.$vr-rem-base * 3;
+
+  @include gl.media-lg {
+    padding-bottom: gl.$vr-rem-base * 4;
+  }
+
+  @at-root &__inner {
+    @include gl.tmp-grid-container;
+  }
+
+  @at-root &__heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  @at-root &__list {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-bottom: gl.$vr-rem-base * 2;
+
+    @include gl.media-md {
+      grid-column: 1 / 10;
+      grid-row: 2;
+      margin-bottom: unset;
+    }
+
+    >dt {
+      margin-top: gl.$vr-rem-base * 1;
+      margin-bottom: gl.$vr-rem-base * .5;
+      font-size: gl.$txt-rem-lg;
+      line-height: gl.$txt-lh-lg;
+    }
+
+    >dt:first-child {
+      margin-top: unset;
+    }
+
+    >dd {
+      margin-left: 3em;
+    }
+  }
+
+  @at-root &__google-map {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    height: gl.$vr-rem-base * 12;
+
+    @include gl.media-md {
+      grid-column: 10 / -1;
+      grid-row: 2;
+      min-height: 100%;
+    }
+
+    >iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

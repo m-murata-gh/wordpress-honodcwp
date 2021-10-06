@@ -1,0 +1,18 @@
+@use "settings/global" as gl;
+
+.structure {
+  width: 100%;
+  padding-left: gl.$sp-side-gap;
+  padding-right: gl.$sp-side-gap;
+
+  @include gl.media-md {
+    padding-left: gl.$pc-side-gap;
+    padding-right: gl.$pc-side-gap;
+  }
+}
+
+.structure--no-padding {
+  @extend .structure;
+  padding-left: 0;
+  padding-right: 0;
+}

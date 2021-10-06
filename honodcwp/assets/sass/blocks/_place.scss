@@ -1,0 +1,33 @@
+@use "settings/global" as gl;
+
+.place {
+  @include gl.tmp-grid-container;
+  row-gap: gl.$row-gap * 1;
+
+  >li:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    @include gl.media-md {
+      grid-column: 1 / 11;
+    }
+  }
+
+  >li:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    @include gl.media-md {
+      grid-column: -11 / -1;
+    }
+  }
+
+  >li:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+
+    @include gl.media-md {
+      grid-column: 1 / 11;
+    }
+  }
+}

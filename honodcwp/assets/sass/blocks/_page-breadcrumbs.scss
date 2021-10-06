@@ -1,0 +1,5 @@
+@use "settings/global" as gl;
+
+.page-breadcrumbs {
+  padding-top: gl.$vr-rem-base;
+}

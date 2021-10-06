@@ -1,0 +1,114 @@
+@use "../../settings/global" as gl;
+
+$input-h: gl.$vr-rem-base * 1.5;
+$border: solid 1px gl.$theme-color-base-2;
+$off-border: solid 1px #888;
+
+.rsv-input-form {
+
+  width: 100%;
+  max-width: 540px;
+  line-height: gl.$txt-lh-sm;
+  font-size: gl.$txt-rem-sm;
+
+  >p {
+    margin-bottom: gl.$vr-rem-base * .5;
+  }
+
+  // エラーメッセージ
+  >strong {
+    display: block;
+    margin-left: 1.5em;
+    color: gl.$theme-color-warning;
+    @include gl.media-md {
+    }
+  }
+
+  >label {
+    display: block;
+
+    >input {
+      display: inline-block;
+      height: 1em;
+      margin: .1em .5em 0 2em;
+      vertical-align: middle;
+    }
+
+    >span {
+      display: inline-block;
+      padding: 0 .5em;
+      vertical-align: middle;
+    }
+  }
+
+  >label:last-of-type {
+    // margin-bottom: gl.$vr-rem-base * 1.5;
+  }
+
+  @at-root &__rsv-field {
+    margin-top: gl.$vr-rem-base * 1;
+    padding: (gl.$vr-rem-base * .5) 0 (gl.$vr-rem-base * 1);
+    border: $border;
+    color: #888;
+
+    &.is-active {
+      background-color: gl.$theme-color-acc-3;
+      color: gl.$theme-color-acc;
+
+      input {
+        color: #333;
+      }
+    }
+
+    >legend {
+      margin-left: .5em;
+      padding: 0 .5em;
+    }
+
+    >label {
+      display: block;
+
+      >span {
+        display: block;
+        min-width: 6em;
+        padding: 0 .5em;
+        margin-left: 1em;
+        text-align: left;
+        vertical-align: middle;
+        @include gl.media-md {
+          width: 30%;
+          display: inline-block;
+          text-align: right;
+        }
+      }
+
+      >input {
+        display: block;
+        height: $input-h;
+        padding: 0 .5em;
+        margin-left: 1em;
+        vertical-align: middle;
+        color: #ccc;
+        @include gl.media-md {
+          display: inline-block;
+          margin: 0;
+        }
+      }
+    }
+
+    >label~label {
+      margin-top: gl.$vr-rem-base * .5;
+    }
+
+    // エラーメッセージ
+    >strong {
+      display: block;
+      margin-left: 1em;
+      color: gl.$theme-color-warning;
+      @include gl.media-md {
+        margin-left: 30%;
+        text-indent: 1.5em;
+      }
+    }
+  }
+}

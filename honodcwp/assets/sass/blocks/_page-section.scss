@@ -1,0 +1,16 @@
+@use "settings/global" as gl;
+
+.page-section {
+  @include gl.section-vertical-padding;
+
+  @at-root &--even {
+    background-color: gl.$theme-color-base-2;
+  }
+
+  @at-root &--last {
+
+    @include gl.media-lg {
+      padding-bottom: gl.$vr-rem-base * 3;
+    }
+  }
+}

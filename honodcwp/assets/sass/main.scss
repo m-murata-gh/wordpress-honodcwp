@@ -1,0 +1,94 @@
+
+
+//
+// bases
+//
+@use "bases/css-wipe";
+@use "bases/base";
+
+//
+// blocks
+//
+@use "blocks/structure";
+@use "blocks/inner";
+@use "blocks/id-link-wrapper";
+
+@use "blocks/pc-header";
+@use "blocks/logo";
+@use "blocks/tel-num";
+@use "blocks/pc-nav";
+
+@use "blocks/sp-header";
+@use "blocks/hmbg-btn";
+@use "blocks/hmbg-menu";
+@use "blocks/hmbg-modal-body";
+@use "blocks/hmbg-modal-header";
+
+@use "blocks/sp-aside";
+@use "blocks/call-reserve";
+
+@use "blocks/mv";
+@use "blocks/carousel";
+@use "blocks/before-icon";
+@use "blocks/balloon-msg";
+@use "blocks/leaf-msg";
+@use "blocks/time-table";
+
+@use "blocks/news";
+@use "blocks/heading";
+@use "blocks/vertical-posts";
+@use "blocks/label";
+
+@use "blocks/greeting";
+
+@use "blocks/medical";
+@use "blocks/circle";
+
+@use "blocks/clinic";
+@use "blocks/place";
+@use "blocks/skew-card";
+@use "blocks/profile";
+@use "blocks/history";
+
+@use "blocks/access";
+@use "blocks/leaf-dotted-line";
+
+@use "blocks/footer";
+@use "blocks/scroll-top";
+
+@use "blocks/page-title";
+@use "blocks/page-breadcrumbs";
+@use "blocks/breadcrumbs";
+@use "blocks/pagenation";
+@use "blocks/page-section";
+@use "blocks/article";
+
+//
+// rsv
+//
+@use "rsv/blocks/rsv";
+@use "rsv/blocks/rsv-contents-wrapper";
+// schedule
+@use "rsv/blocks/rsv-schedule";
+@use "rsv/blocks/rsv-title";
+@use "rsv/blocks/rsv-weeklink";
+@use "rsv/blocks/rsv-calendar";
+// form
+@use "rsv/blocks/rsv-confirm-table";
+@use "rsv/blocks/rsv-input-form";
+@use "rsv/blocks/rsv-button";
+@use "rsv/blocks/rsv-msg";
+
+// vr確認用 bese 24
+
+// * {
+//   background-color: unset !important;
+// }
+//
+// body {
+//   background: url(../../../docs/debug.png) !important;
+// }
+//
+// .news .vertical-posts .vertical-posts__item {
+//   color: black !important;
+// }

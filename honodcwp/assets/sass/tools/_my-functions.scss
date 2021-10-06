@@ -1,0 +1,17 @@
+//
+// 単位
+//
+
+// 0.1remをかける
+@function rem($num) {
+  @return $num * 0.1rem;
+}
+
+//
+// バーティカルリズム
+//
+
+// lh(単位なし)を返す(テキストサイズ変数用)
+@function vr-txt-lh($vr-base, $txt-num) {
+  @return $vr-base / $txt-num;
+}

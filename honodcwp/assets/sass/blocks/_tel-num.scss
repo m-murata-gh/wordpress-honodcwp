@@ -1,0 +1,10 @@
+@use "settings/global" as gl;
+
+$height: gl.$vr-rem-base * 1.5;
+
+.tel-num {
+
+  img {
+    height: $height;
+  }
+}

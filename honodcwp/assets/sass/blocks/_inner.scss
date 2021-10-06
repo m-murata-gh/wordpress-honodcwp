@@ -1,0 +1,23 @@
+@use "settings/global" as gl;
+
+.inner {
+  margin: 0 auto;
+  width: 100%;
+  max-width: gl.$inner-max-w;
+}
+
+.inner--wide {
+  @extend .inner;
+  max-width: gl.$inner-max-w--wide;
+}
+
+.inner--wide-has-padding {
+  @extend .inner--wide;
+  padding-left: gl.$sp-side-gap;
+  padding-right: gl.$sp-side-gap;
+
+  @include gl.media-md {
+    padding-left: gl.$pc-side-gap;
+    padding-right: gl.$pc-side-gap;
+  }
+}

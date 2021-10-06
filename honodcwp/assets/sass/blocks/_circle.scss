@@ -1,0 +1,81 @@
+@use "settings/global" as gl;
+
+.circle {
+  display: block;
+  clip-path: circle(50%);
+  position: relative;
+  padding-top: 100%;
+  width: 100%;
+  border-radius: 50%;
+  transition: all gl.$duration-base;
+
+  @at-root &:hover {
+    opacity: gl.$hover-opacity-base;
+  }
+
+  @at-root &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: no-repeat center/ cover;
+  }
+
+  @at-root &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background-color: gl.$theme-color-main;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    z-index: +1;
+    bottom: 25%;
+    width: 100%;
+    transform: translateY(25%);
+    text-align: center;
+    color: gl.$theme-color-base;
+  }
+
+  @at-root &--dummy {
+    display: block;
+    position: relative;
+    bottom: 10%;
+    right: 15%;
+    padding-top: 100%;
+    width: 100%;
+    background: no-repeat right bottom/ 35% url(../../assets/images/leaves_navy.svg);
+
+    span {
+      display: none;
+    }
+  }
+
+  // 画像設定
+  @at-root &--ippan::before {
+    background-image: url(../../assets/images/ippan-min.png);
+  }
+
+  @at-root &--syouni::before {
+    background-image: url(../../assets/images/syouni-min.png);
+  }
+
+  @at-root &--sisyuu::before {
+    background-image: url(../../assets/images/sisyuu-min.png);
+  }
+
+  @at-root &--yobou::before {
+    background-image: url(../../assets/images/yobou-min.png);
+  }
+
+  @at-root &--ireba::before {
+    background-image: url(../../assets/images/ireba-min.png);
+  }
+}

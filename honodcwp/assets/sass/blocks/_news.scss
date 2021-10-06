@@ -1,0 +1,31 @@
+@use "settings/global" as gl;
+
+.news {
+  @include gl.section-vertical-padding;
+  position: relative; // 背景上部のウェーブの基準
+  background-color: gl.$bgc-news;
+  color: gl.$theme-color-base;
+
+  @at-root &__inner {
+    @include gl.tmp-grid-container;
+  }
+
+  @at-root &__heading {
+    grid-column: 1 / -1;
+  }
+
+  @at-root &__contents {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%; // vertical-posts__leadのtext-overflowを効かせるため指定
+
+    @include gl.media-md {
+    grid-column: 2 / -2;
+    }
+  }
+
+  // 背景上部のウェーブ
+  @at-root &::before {
+    @include gl.before-bg-wave;
+  }
+}

@@ -1,0 +1,59 @@
+@use "settings/global" as gl;
+
+.time-table {
+
+  @at-root &__inner {
+    font-size: gl.$txt-rem-sm;
+    line-height: gl.$txt-lh-sm;
+  }
+
+  table {
+    margin-bottom: gl.$vr-rem-base * 0.5;
+    white-space: nowrap;
+  }
+
+  th,
+  td {
+    line-height: (gl.$vr-rem-base * 1.5) - gl.$border-w;
+    text-align: center;
+    border-bottom: solid gl.$border-w;
+  }
+
+  th {
+    $count: 7.7;
+    width: gl.$sp-col-gap * $count;
+
+    @include gl.media-md {
+      width: gl.$pc-col-gap * $count;
+    }
+  }
+
+  td {
+    $count: 1.7;
+    width: gl.$sp-col-gap * $count;
+
+    @include gl.media-md {
+      width: gl.$pc-col-gap * $count;
+    }
+  }
+
+  p {
+    text-align: right;
+    font-size: gl.$txt-rem-x-sm;
+    line-height: gl.$txt-lh-x-sm;
+  }
+}
+
+.time-table--has-padding {
+  @extend .time-table;
+
+  .time-table__inner {
+    padding: (gl.$vr-rem-base / 2) gl.$sp-col-gap;
+
+    @include gl.media-md {
+      padding-left: gl.$pc-side-gap * 2;
+      padding-right: gl.$pc-side-gap * 2;
+      background: linear-gradient(to right, rgba(gl.$theme-color-base, 0) 0%, gl.$bgc-time-table 10%, gl.$bgc-time-table 90%, rgba(gl.$theme-color-base, 0) 100%);
+    }
+  }
+}

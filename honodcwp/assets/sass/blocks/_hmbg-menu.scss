@@ -1,0 +1,52 @@
+@use "settings/global" as gl;
+
+// settings
+$duration: gl.$duration-base; // 表示速度
+
+$bg-color: gl.$theme-color-main; // 背景色
+$color: gl.$theme-color-base; // 文字色
+$border-color: gl.$theme-color-base; // border色
+
+$area-w: auto; // areaボックスの幅
+$area-border-w: 0; // areaボックスのborder(なし...0)
+
+$li-h: gl.$btn-h; // <li>の高さ
+$li-border-w: gl.$border-w; // <li>の区切り線幅(なし...0)
+$li-fs: gl.$txt-rem-base; // <li>のfont-size
+$li-lh: $li-h - $li-border-w; // <li>のline-height
+
+
+.hmbg-menu {
+  width: 100%;
+  height: 0; // 非表示状態にする
+  overflow: hidden; // 非表示状態にする
+  transition: height #{$duration}; // 表示速度
+
+  @at-root &__area {
+    border: solid #{$area-border-w} $border-color;
+    transform: translateY(-($area-border-w));
+  }
+
+  @at-root &__list {
+
+    li {
+      font-size: $li-fs;
+      line-height: $li-lh;
+      text-align: center;
+      white-space: nowrap;
+      border-bottom: solid #{$li-border-w} $border-color;
+      background-color: $bg-color;
+      @include gl.bg-tcm-hover; // hover時背景色変更
+    }
+
+    a {
+      display: block;
+      color: $color;
+    }
+  }
+}
+
+// is-active-hmbg
+.hmbg-menu.is-active-hmbg {
+  height: 100%; // 表示状態にする
+}

@@ -1,0 +1,40 @@
+@use "settings/global" as gl;
+
+%before-icon {
+
+  @at-root &::before {
+    display: inline-block;
+    content: '';
+    vertical-align: middle;
+  }
+}
+
+.before-icon--rhombus {
+  @extend %before-icon;
+
+  @at-root &::before {
+    margin-right: .6em;
+    width: .4em;
+    height: .4em;
+    background-color: gl.$theme-color-acc;
+    transform: rotate(45deg) translateY(-15%);
+  }
+}
+
+.before-icon--house {
+  @extend %before-icon;
+
+  @at-root &::before {
+    margin-right: .25em;
+    width: 1em;
+    height: 1em;
+    background: no-repeat top left/ contain url(../../assets/images/icon-house.svg);
+    transform: translateY(-15%);
+  }
+
+  @at-root &:hover {
+    @at-root &::before {
+      background-image: url(../../assets/images/icon-house_hover.svg);
+    }
+  }
+}

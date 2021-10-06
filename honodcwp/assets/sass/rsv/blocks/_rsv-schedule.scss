@@ -1,0 +1,11 @@
+@use "../../settings/global" as gl;
+
+.rsv-schedule {
+  @at-root &__rsv-title {
+    margin-bottom: gl.$vr-rem-base;
+  }
+  
+  @at-root &__rsv-weeklink {
+    margin-bottom: gl.$vr-rem-base * .5;
+  }
+}

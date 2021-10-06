@@ -1,0 +1,148 @@
+@use "settings/global" as gl;
+
+$heading-h: gl.$vr-rem-base * 3;
+$bg-heading-h: gl.$vr-rem-base * 2.5;
+
+.heading {
+  display: flex;
+  height: $heading-h;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: gl.$vr-rem-base;
+
+  @at-root &__txt {
+    z-index: +1;
+    font-size: gl.$txt-rem-xx-lg;
+    line-height: gl.$txt-lh-xx-lg;
+  }
+
+  @at-root &::before {
+    display: block;
+    content: '';
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    font-family: serif;
+    font-size: $bg-heading-h;
+    line-height: $bg-heading-h;
+  }
+}
+
+// 子ページタイトルにはこのクラスを追加
+.heading--pagetitle {
+  height: $heading-h * 2;
+  margin-bottom: unset;
+
+  @include gl.media-lg {
+    height: $heading-h * 3;
+  }
+
+  @at-root &::before {
+    background: no-repeat center/ cover;
+  }
+
+  @at-root &::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    font-size: $bg-heading-h * 1.5;
+    line-height: $bg-heading-h * 1.5;
+    font-family: serif;
+    color: gl.$fc-heading-pagetitle;
+    background-color: rgba(gl.$theme-color-base-2, .1);
+    @include gl.media-md {
+      font-size: $bg-heading-h * 2;
+      line-height: $bg-heading-h * 2;
+    }
+  }
+}
+
+// news
+.heading--news::before {
+  content: 'News';
+  color: gl.$fc-heading-news;
+}
+
+// news(子ページタイトル)
+.heading--news-pagetitle {
+
+  @at-root &::before {
+    background-image: url(../../assets/images/mv-bg-1-min.png);
+  }
+
+  @at-root &::after {
+    content: 'News';
+    background-color: rgba(gl.$theme-color-base-2, .3);
+  }
+}
+
+// greeting
+.heading--greeting::before {
+  content: 'Greeting';
+  text-align: right;
+  color: gl.$fc-heading-greeting;
+}
+
+// medical
+.heading--medical::before {
+  content: 'Medical';
+  color: gl.$fc-heading-medical;
+}
+
+// medical(子ページタイトル)
+.heading--medical-pagetitle {
+
+  @at-root &::before {
+    background-image: url(../../assets/images/page-medical-min.png);
+  }
+
+  @at-root &::after {
+    content: 'Medical';
+    background-color: rgba(gl.$theme-color-base-2, .1);
+  }
+}
+
+// clinic
+.heading--clinic::before {
+  content: 'Clinic';
+  text-align: right;
+  color: gl.$fc-heading-clinic;
+}
+
+// clinic(子ページタイトル)
+.heading--clinic-pagetitle {
+
+  @at-root &::before {
+    background-image: url(../../assets/images/page-clinic-min.png);
+  }
+
+  @at-root &::after {
+    content: 'Clinic';
+    background-color: rgba(gl.$theme-color-base-2, .5);
+  }
+}
+
+// access
+.heading--access::before {
+  content: 'Access';
+  color: gl.$fc-heading-access;
+}
+
+// reserve(子ページタイトル)
+.heading--reserve-pagetitle {
+
+  @at-root &::before {
+    background-image: url(../../assets/images/reserve-min.png);
+  }
+
+  @at-root &::after {
+    content: 'Reserve';
+    background-color: rgba(gl.$theme-color-base-2, .5);
+  }
+}

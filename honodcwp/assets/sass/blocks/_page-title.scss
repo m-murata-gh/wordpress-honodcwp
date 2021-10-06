@@ -1,0 +1,10 @@
+@use "settings/global" as gl;
+
+.page-title {
+  margin-top: gl.$sp-header-h; // sp-header分下にずらす
+  background-color: gl.$theme-color-base-2;
+
+  @include gl.media-md {
+    margin-top: gl.$pc-header-h; // pc-header分下にずらす
+  }
+}

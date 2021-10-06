@@ -1,0 +1,47 @@
+@use "../../settings/global" as gl;
+
+$button-h: gl.$vr-rem-base * 2;
+
+.rsv-button {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  height: $button-h;
+  padding: 0;
+  margin: 0 auto;
+  cursor: pointer;
+  font-size: gl.$txt-rem-base;
+  text-align: center;
+  vertical-align: middle;
+  transition: all gl.$duration-base;
+
+  border: none;
+  background-color: gl.$theme-color-acc;
+  color: gl.$theme-color-base;
+
+  &:hover {
+    opacity: gl.$hover-opacity-base;
+  }
+
+  a,
+  a:link {
+    color: gl.$theme-color-base;
+  }
+}
+
+.rsv-button--back {
+  @extend .rsv-button;
+
+  border: solid 1px gl.$theme-color-base-2;
+  background-color: gl.$theme-color-base;
+  color: gl.$theme-color-acc;
+
+  a,
+  a:link {
+    color: gl.$theme-color-acc;
+  }
+}
+
+.rsv-button--err {
+  @extend .rsv-button--back;
+}

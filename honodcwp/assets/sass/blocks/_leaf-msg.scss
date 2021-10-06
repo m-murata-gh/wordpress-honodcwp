@@ -1,0 +1,41 @@
+@use "settings/global" as gl;
+
+.leaf-msg {
+
+  @at-root &__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+
+    @include gl.media-md {
+      flex-direction: column;
+    }
+  }
+
+  @at-root &__item--sm {
+    margin: 0 gl.$sp-col-gap 0 0;
+
+    @include gl.media-md {
+      margin: 0 0 gl.$vr-rem-base 0;
+    }
+
+    img {
+      height: gl.$vr-rem-base * 3.5;
+
+      @include gl.media-md {
+        height: gl.$vr-rem-base * 4;
+      }
+    }
+  }
+
+  @at-root &__item--lg {
+
+    img {
+      height: gl.$vr-rem-base * 4.5;
+
+      @include gl.media-md {
+        height: gl.$vr-rem-base * 5;
+      }
+    }
+  }
+}

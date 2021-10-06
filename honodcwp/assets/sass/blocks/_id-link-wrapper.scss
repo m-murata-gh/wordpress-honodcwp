@@ -1,0 +1,16 @@
+@use "settings/global" as gl;
+
+.id-link-wrapper {
+  @at-root &::before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: gl.$sp-header-h;
+    margin-top: -(gl.$sp-header-h);
+
+    @include gl.media-md {
+      height: gl.$pc-header-h;
+      margin-top: -(gl.$pc-header-h);
+    }
+  }
+}

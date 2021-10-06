@@ -1,0 +1,79 @@
+@use "settings/global" as gl;
+
+.skew-card {
+  display: block;
+  position: relative;
+  height: gl.$vr-rem-base * 6;
+  background: no-repeat center/ cover;
+  transition: all gl.$duration-base;
+  overflow: hidden;
+
+  @at-root &:hover {
+    opacity: gl.$hover-opacity-base;
+  }
+
+  @at-root &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 100%;
+    transform-origin: bottom left;
+    transform: skewX(-20deg);
+    background: linear-gradient(to right, rgba(gl.$theme-color-base, .4) 0%, gl.$theme-color-base 100%);
+  }
+
+  // 文字背景
+  @at-root &__text-bg {
+    display: block;
+    content: '';
+    position: absolute;
+    // z-index: 2;
+    bottom: 0;
+    // left: 0;
+    left: -35%;
+    width: 100%;
+    height: gl.$vr-rem-base * 1.5;
+    transform-origin: bottom left;
+    transform: skewX(-20deg);
+    background-color: gl.$theme-color-main;
+  }
+
+  // 文字部分
+  @at-root &__text {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: (gl.$vr-rem-base * .25) .5em;
+    width: 100%;
+    height: gl.$vr-rem-base * 1.5;
+    color: gl.$theme-color-base;
+  //
+  //   >span {
+  //   display: block;
+  //   position: absolute;
+  //   // z-index: 1;
+  //   bottom: 0;
+  //   left: 0;
+  //   padding: (gl.$vr-rem-base * .25) .5em;
+  //   width: 100%;
+  //   color: gl.$theme-color-base;
+  //   }
+  }
+
+  // 画像設定
+  @at-root &--kids-space {
+    background-image: url(../../assets/images/kids-space-min.png);
+  }
+
+  @at-root &--cleaning-space {
+    background-image: url(../../assets/images/cleaning-space-min.png);
+  }
+
+  @at-root &--water-server {
+    background-image: url(../../assets/images/water-server-min.png);
+  }
+}

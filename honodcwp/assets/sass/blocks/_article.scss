@@ -1,0 +1,118 @@
+@use "settings/global" as gl;
+
+.article {
+  @include gl.tmp-grid-container;
+  contain: layout;
+  position: relative;
+
+  @at-root &__heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding: gl.$vr-rem-base 0;
+
+    h3,
+    p {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: gl.$txt-rem-xx-lg;
+      line-height: gl.$txt-lh-xx-lg;
+    }
+
+    p {
+      font-size: gl.$txt-rem-x-sm;
+      line-height: gl.$txt-lh-x-sm;
+      font-weight: bold;
+      color: gl.$theme-color-main;
+    }
+  }
+
+  @at-root &__paragraph {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding: gl.$vr-rem-base 0;
+
+    @include gl.media-md {
+      grid-column: 3 / -3;
+    }
+  }
+
+  @at-root &__image {
+    grid-column: 2 / -2;
+    grid-row: 2;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: gl.$vr-rem-base * 8;
+
+    @include gl.media-md {
+      grid-column: 4 / -4;
+    }
+
+    // image-グラデーション部分
+    @at-root &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      z-index: +1;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, gl.$theme-color-base 0%, rgba(gl.$theme-color-base, 0) 60%);
+    }
+
+    @at-root &--even::before {
+      background: linear-gradient(to left, gl.$theme-color-base-2 0%, rgba(gl.$theme-color-base-2, 0) 60%);
+    }
+
+    // image-画像部分
+    @at-root &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: no-repeat center/ cover;
+    }
+
+    // image-画像設定
+    @at-root &.img-ippan::after {
+      background-image: url(../../assets/images/ippan-min.png);
+    }
+
+    @at-root &.img-syouni::after {
+      background-image: url(../../assets/images/syouni-min.png);
+    }
+
+    @at-root &.img-sisyuu::after {
+      background-image: url(../../assets/images/sisyuu-min.png);
+    }
+
+    @at-root &.img-yobou::after {
+      background-image: url(../../assets/images/yobou-min.png);
+    }
+
+    @at-root &.img-ireba::after {
+      background-image: url(../../assets/images/ireba-min.png);
+    }
+
+    @at-root &.img-kids-space::after {
+      background-image: url(../../assets/images/kids-space-min.png);
+    }
+
+    @at-root &.img-cleaning-space::after {
+      background-image: url(../../assets/images/cleaning-space-min.png);
+    }
+
+    @at-root &.img-water-server::after {
+      background-image: url(../../assets/images/water-server-min.png);
+    }
+  }
+}

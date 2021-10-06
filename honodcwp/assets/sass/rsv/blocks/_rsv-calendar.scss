@@ -1,0 +1,165 @@
+@use "../../settings/global" as gl;
+
+$cell-h: gl.$vr-rem-base * 1.25;
+$border: solid 1px #888;
+$on-ftc: gl.$theme-color-main;
+$on-bgc: #fff;
+$on-ftc-hover: $on-bgc;
+$on-bgc-hover: $on-ftc;
+$off-bgc: #eee;
+$sat-ftc: #44a;
+$sat-bgc: rgba($sat-ftc, .15);
+$sun-ftc: #b34;
+$sun-bgc: rgba($sun-ftc, .15);
+$pubhol-ftc: $sun-ftc;
+$pubhol-bgc: $sun-bgc;
+
+.rsv-calendar {
+  width: 100%;
+  max-width: max-content;
+  margin: 0 auto;
+
+  table {
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  >table {
+    // 日付曜日ヘッダー部分
+    >thead {
+      position: sticky;
+      top: gl.$sp-header-h;
+      background-color: #fff; // 透け防止
+      @include gl.media-md {
+        top: gl.$pc-header-h;
+      }
+
+      th {
+        width: 6em;
+        background-color: #fff;
+        border: $border;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: gl.$txt-rem-sm;
+        line-height: gl.$txt-lh-sm * 0.8;
+      }
+      // 年月行
+      tr:nth-child(1) {
+        th {
+          height: $cell-h;
+          border-left-width: 0;
+          border-bottom-width: 0;
+        }
+        th:nth-child(1) {
+          border-left-width: 1px;
+          border-bottom-width: 1px;
+        }
+      }
+      // 日にち行
+      tr:nth-child(2) {
+        th {
+          height: $cell-h * 1.5;
+          border-left-width: 0;
+        }
+      }
+    }
+    // 予約時刻とステータス部分
+    >tbody {
+      th {
+        width: 8em;
+      }
+    }
+  }
+
+  // 予約時刻部分
+  @at-root &__time-table {
+    width: 100%;
+    height: 100%;
+    border:none;
+
+    th {
+      height: $cell-h;
+      border-right: $border;
+      border-left: $border;
+      border-bottom: $border;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: gl.$txt-rem-sm;
+      line-height: gl.$txt-lh-sm;
+    }
+    tr:nth-child(odd) {
+      >th {
+        border-bottom-width: 2px;
+      }
+    }
+    tr:last-child {
+      >th {
+        border-bottom-width: 1px;
+      }
+    }
+  }
+
+  // 予約ステータス部分
+  @at-root &__status-table {
+    width: 100%;
+    height: 100%;
+    border:none;
+
+    td {
+      height: $cell-h;
+      border-right: $border;
+      border-bottom: $border;
+      vertical-align: middle;
+    }
+    tr:nth-child(odd) {
+      >td {
+        border-bottom-width: 2px;
+      }
+    }
+    tr:last-child {
+      >td {
+        border-bottom-width: 1px;
+      }
+    }
+  }
+
+  .on-cell {
+    background-color: $on-bgc;
+    color: $on-ftc;
+    a {
+      display: block;
+      &:link, &:visited {
+        color: $on-ftc;
+      }
+    }
+    &:hover {
+      background-color: $on-bgc-hover;
+      color: $on-ftc-hover;
+      a {
+        &:link, &:visited {
+          color: $on-ftc-hover;
+        }
+      }
+    }
+  }
+
+  .off-cell {
+    background-color: $off-bgc;
+  }
+
+  .sat {
+    background-color: $sat-bgc;
+    color: $sat-ftc;
+  }
+
+  .sun {
+    background-color: $sun-bgc;
+    color: $sun-ftc;
+  }
+
+  .pub-hol {
+    background-color: $pubhol-bgc;
+    color: $pubhol-ftc;
+  }
+}

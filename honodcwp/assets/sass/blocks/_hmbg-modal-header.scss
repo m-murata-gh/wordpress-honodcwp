@@ -1,0 +1,12 @@
+@use "settings/global" as gl;
+
+.hmbg-modal-header {
+  position: fixed; // 必ずfixedにすること
+  top: 0;
+}
+
+// is-active-hmbg
+.hmbg-modal-header.is-active-hmbg {
+  bottom: 0; // ハンバーガーメニューのスクロールを有効にする
+  overflow: auto; // ハンバーガーメニューのスクロールを有効にする
+}

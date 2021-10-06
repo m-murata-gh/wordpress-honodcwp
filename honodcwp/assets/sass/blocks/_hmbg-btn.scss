@@ -1,0 +1,132 @@
+@use "settings/global" as gl;
+
+// settings
+$duration: gl.$duration-base; // 表示速度
+
+$bg-color: gl.$theme-color-main; // 背景色
+$color: gl.$theme-color-base; // ライン、キャプション色
+$frame-color: rgba($color, 0); // border色
+$frame-w: gl.$border-w; // ボックスのframe幅(なし...0)
+
+$btn-w: gl.$sp-header-h; // btnボックスの幅
+$btn-h: $btn-w; // btnボックスの高さ
+
+$area-w: $btn-w - ($frame-w * 2); // areaボックスの幅
+$area-h: $area-w; // areaボックスの高さ
+
+$central-w: $area-w * 0.5; // centralボックスの幅
+$central-h: $area-h * 0.5; // centralボックスの高さ
+
+$line-w: $central-w; // lineボックス(3本線部分)の幅
+$line-h: ($central-h / 4) * 2.4; // lineボックス(3本線部分)の高さ
+$span-w: $central-w * 0.85; // 各線の長さ
+$span-h: 4px; // 各線の高さ
+$caption-w: $central-w; // captionボックス(キャプション部分)の幅
+$caption-h: ($central-h / 4) * 1; // captionボックス(キャプション部分)の高さ
+$line-caption-gap: ($central-h / 4) * 0.4;  // lineボックスとcaptionボックス間の余白
+
+
+.hmbg-btn {
+
+  // frameボックス(...全体のボーダー部分となる)
+  @at-root &__frame {
+  display: flex;
+  width: $btn-w;
+  height: $btn-h;
+  align-items: center;
+  justify-content: center;
+  background-color: $frame-color;
+  cursor: pointer;
+  }
+
+  // areaボックス
+  @at-root &__area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $area-w;
+    height: $area-h;
+    background-color: $bg-color;
+  }
+
+  // centralボックス
+  @at-root &__central {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: $central-w;
+    height: $central-h;
+  }
+
+   // lineボックス
+  @at-root &__line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: $line-w;
+    height: $line-h;
+    position: relative;
+
+    // ライン
+    span {
+      content: '';
+      display: block;
+      width: $span-w;
+      height: $span-h;
+      background-color: $color;
+      transition: all #{$duration}; // 表示速度
+    }
+  }
+
+  // captionボックス
+  @at-root &__caption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: $caption-w;
+    height: $caption-h;
+
+    // キャプション
+    i {
+      display: block;
+      font-size: $caption-h;
+      font-style: normal;
+      line-height: $caption-h;
+      text-align: center;
+      color: $color;
+
+      @at-root &::before {
+        display: block;
+        content: '';
+        height: $line-caption-gap;
+      }
+    }
+  }
+}
+
+// is-active-hmbg
+.hmbg-btn.is-active-hmbg {
+
+  // lineボックス
+ .hmbg-btn__line {
+
+   // ライン
+    span:nth-child(1) {
+      position: absolute;
+      top: $span-h / -2;
+      transform: translateY($line-h / 2) rotate(225deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      position: absolute;
+      bottom: $span-h / -2;
+      transform: translateY($line-h / -2) rotate(-225deg);
+    }
+  }
+}

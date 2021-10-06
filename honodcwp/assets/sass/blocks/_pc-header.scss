@@ -1,0 +1,38 @@
+@use "settings/global" as gl;
+
+.pc-header {
+  display: none;
+
+  @include gl.media-md {
+    display: block;
+    z-index: gl.$z-upper-top;
+    position: fixed;
+    top: 0;
+    height: gl.$pc-header-h;
+    background-color: gl.$bgc-pc-header;
+
+    @at-root &__inner {
+      @include gl.tmp-grid-container;
+      grid-template-rows: (gl.$pc-header-h--logo) (gl.$pc-header-h--nav);
+    }
+
+    @at-root &__logo {
+      grid-column: 1 / 9;
+      grid-row: 1;
+      align-self: center;
+      justify-self: start;
+    }
+
+    @at-root &__tel-num {
+      grid-column: -8 / -1;
+      grid-row: 1;
+      align-self: center;
+      justify-self: end;
+    }
+
+    @at-root &__pc-nav {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+}

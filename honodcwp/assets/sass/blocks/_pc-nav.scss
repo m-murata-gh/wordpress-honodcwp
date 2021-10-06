@@ -1,0 +1,55 @@
+@use "settings/global" as gl;
+
+.pc-nav {
+
+  @at-root &__list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: gl.$pc-col-gap;
+
+    @include gl.media-lg {
+      grid-template-columns: 1fr repeat(7, 2fr) 1fr;
+    }
+
+    li {
+      @include gl.li-nav;
+      position: relative;
+      transition: opacity gl.$duration-base;
+    }
+
+    li:first-child {
+      grid-column-start: 1;
+
+      @include gl.media-lg {
+        grid-column-start: 2;
+      }
+    }
+
+    li:hover {
+      opacity: gl.$hover-opacity-base;
+    }
+
+    // liホバー時に、葉っぱアイコンが浮かぶ
+    li::before {
+      display: block;
+      content: '';
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: no-repeat center/ (gl.$vr-rem-base * 1.5) url(../../assets/images/leaf_beige.svg);
+      opacity: 0;
+      transition: gl.$duration-base;
+    }
+
+    li:hover::before {
+      opacity: 1;
+    }
+
+    a {
+      display: block;
+      color: gl.$theme-color-acc;
+    }
+  }
+}

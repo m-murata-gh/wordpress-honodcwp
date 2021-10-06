@@ -1,0 +1,70 @@
+@use "settings/global" as gl;
+
+.mv {
+  background-color: gl.$bgc-mv;
+  padding-bottom: gl.$vr-rem-base * 2;
+
+  @include gl.media-md {
+    margin-top: gl.$pc-header-h; // pc-header分下にずらす
+  }
+
+  @at-root &__inner--wide {
+    @include gl.tmp-grid-container;
+    position: relative;
+  }
+
+  @at-root &__carousel {
+    grid-column: 1 / -1;
+    height: gl.$vr-rem-base * 14;
+    clip-path: inset(0 gl.$sp-side-gap); // spのみ背景画像に余白をつける
+
+    @include gl.media-md {
+      height: gl.$vr-rem-base * 24;
+      clip-path: unset;
+    }
+
+    @include gl.media-lg {
+      height: gl.$vr-rem-base * 30;
+    }
+  }
+
+  @at-root &__balloon-msg {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin: gl.$vr-rem-base 0;
+
+    @include gl.media-md {
+      grid-column: 1 / 9;
+      justify-self: start;
+      position: absolute;
+      top: gl.$vr-rem-base * 4;
+      margin-left: gl.$pc-side-gap;
+    }
+  }
+
+  @at-root &__leaf-msg {
+    grid-column: 1 / -1;
+    align-self: bottom;
+    justify-self: end;
+    position: absolute;
+    top: gl.$vr-rem-base * 9.5;
+    margin-right: gl.$sp-side-gap;
+
+    @include gl.media-md {
+      grid-column: -9 / -1;
+      top: gl.$vr-rem-base * 4;
+      margin-right: gl.$pc-side-gap;
+    }
+  }
+
+  @at-root &__time-table--has-padding {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    @include gl.media-md {
+      position: absolute;
+      bottom: gl.$vr-rem-base;
+      justify-self: end;
+    }
+  }
+}
